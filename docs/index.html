@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
    <head>
-      <title>Conference Website</title>
+      <title>abmdb2023</title>
+      <meta charset="UTF-8">
       <style>
          body {
          margin: 0;
@@ -20,7 +21,7 @@
          text-align: center;
          width: 100%;
          background-size: cover;
-         background-image: linear-gradient( #2f3591, #1c2343);
+         background-image: linear-gradient( #2f3591, #0065c3);
          border-radius: 0 0 85% 85% / 30%;
          overflow: hidden;
          }
@@ -50,7 +51,7 @@
          padding: 10px;
          }
          .nav-bar {
-         background-image: linear-gradient( #2f3591, #1c2343);
+         background-image: linear-gradient( #2f3591, #0065c3);
          display: flex;
          align-items: center;
          justify-content: center;
@@ -58,7 +59,8 @@
          .nav-item {
          margin:  10px;
          color: #fff;
-         background-image: linear-gradient( #2f3591, #1c2343);
+         text-shadow: 1px 1px 1px #333;
+         background-image: linear-gradient( #2f3591, #0065c3);
          font-size: small;
          text-decoration: none;
          cursor: pointer;
@@ -69,42 +71,47 @@
          .nav-item:hover {
          color: yellow;
          }
-         .detail {
+         marquee {
          text-align: center;
          width: 100%;
-         text-shadow: 1px 1px 1px #1c2343;
+         text-shadow: 1px 1px 1px #0065c3;
          color:  #2f3591;
          margin: 10px;
          }
          .section {
-         height: auto; /* Adjust height as needed */
+         height: auto; 
          margin-bottom: 50px;
          padding: 10px;
          border: 1px solid #ccc;
-         }
-         #about-conference {
-         background-color: #1c2343;
-         padding: 50px;
-         margin: 50px;
-         font-size: medium;
-         }
-         #committee{
-         padding: 50px;
-         margin: 50px;
-         font-size: medium;
-         }
-         .conference{
-         text-align: justify;
-         color:  #fff;
-         line-height: 1.5;
-         padding: 10px;
          }
          .section .content {
          text-align: center;
          color: #1c2343;
          font-family: 'Roboto Slab', serif;
          }
-         #paper-submission, #call-for-papers,   #keynote-speakers,#important-dates {
+         #about-conference , .bank {
+         background-color: #0065c3;
+         text-shadow: 1px 1px 1px #333;
+         padding: 50px;
+         margin: 50px;
+         font-size: medium;
+         }
+         .conference, .bank{
+         text-align: justify;
+         color:  #fff;
+         line-height: 1.5;
+         padding: 10px;
+         }
+         #committee{
+         padding: 50px;
+         margin: 50px;
+         font-size: medium;
+         }
+         .bank pre{
+         font-size: x-large;
+         font-weight: bolder;
+         }
+         #paper-submission, #call-for-papers, #keynote-speakers, #important-dates ,#address{
          text-align: justify;
          padding: 50px;
          margin: 50px;
@@ -130,28 +137,32 @@
          #call-for-papers{
          text-align: center;
          } 
-         #call-for-papers p,  #call-for-papers h1 {
+         #call-for-papers p,  #call-for-papers h1 ,#address h4, #address p{
          text-align: center;
          color:  #1c2343;
          font-size: 18px;
          font-family: 'Roboto Slab', serif;
          }
-         #call-for-papers ul,   #keynote-speakers ul , #committee ul{
+         #call-for-papers ul,   #keynote-speakers ul , #committee ul, #paper-submission ul{
          display: inline-block;
          text-align: left;
          }
-         #call-for-papers  li ,  #keynote-speakers li, #committee ul{
+         #call-for-papers  li ,  #keynote-speakers li, #committee li, #paper-submission li{
          color:  #1c2343;
          margin-bottom: 5px;
          line-height: 1.5;
          }
-         #committee li, #committee ul, #committee .block h3{
+         #committee li, #committee ul, #committee .block h3, #paper-submission li, #paper-submission .bank h2{
          padding: 5px;
          color: #fff;
          }
+         #paper-submission li{
+         font-size: large;
+         }
          #committee .block {
          padding: 10px;
-         background-color: #1c2343;
+         text-shadow: 1px 1px 1px #333;
+         background-image: linear-gradient( #2f3591, #0065c3);
          }
          .committee-section {
          display: none;
@@ -160,7 +171,7 @@
          display: block;
          }
          #about-srec,#about-departments {
-         background-image: linear-gradient( #2f3591, #1c2343);
+         background-image: linear-gradient( #2f3591, #0065c3);
          text-align: justify;
          padding: 50px;
          margin: 50px;
@@ -205,9 +216,17 @@
          color: #fff;
          text-shadow: 1px 1px 1px #333;
          }
+         #address{
+         border-color: #1c2343;
+         width: 30%;
+         border-radius: 50px;
+         margin: auto;
+         }
          footer {
-         background-image: linear-gradient(#1c2343, #37437f);
+         margin-top: 50px;
+         background-image: linear-gradient(#0065c3, #37437f);
          color: #fff;
+         text-shadow: 1px 1px 1px #333;
          padding: 20px;
          text-align: center;
          position:relative;
@@ -265,26 +284,24 @@
          </div>
       </div>
       <div class="logo-container">
+         <img src="SNR.jpg" alt="SNR" class="logo" >
          <img src="drdo.jpg" alt="DRDO" class="logo">
          <img src="srec.jpg" alt="SREC" class="logo">
-         <img src="SNR.jpg" alt="SNR" class="logo" >
       </div>
-      <div class="detail">
-         <marquee>
-            <p>DRDO sponsored Two  Days National Conference  on “ADVANCED BIOCOMPATIBLE MATERIALS AND DEVICES / SYSTEMS FOR BIOMEDICAL APPLICATIONS” (ABMDB - 2023) 
-               || 10.08.2023 – 11.08.2023 || <a href="">Register here</a>
-            </p>
-         </marquee>
-      </div>
-      <div class="content">
-         <section id="about-conference" class="section">
+      <marquee>
+         <p>DRDO sponsored Two  Days National Conference  on “ADVANCED BIOCOMPATIBLE MATERIALS AND DEVICES / SYSTEMS FOR BIOMEDICAL APPLICATIONS” (ABMDB - 2023) 
+            || 10.08.2023 – 11.08.2023 
+         </p>
+      </marquee>
+      <section id="about-conference" class="section">
+         <div class="content">
             <div class="conference">
                <h1 style="text-align: center;">ABOUT THE CONFERENCE</h1>
                <p>
                   The objective of the Two Days National Conference on “ADVANCED BIOCOMPATIBLE MATERIALS AND DEVICES / SYSTEMS FOR BIOMEDICAL APPLICATIONS” (ABMDB - 2023) aims to discuss new developments, analyze challenges in healthcare and inspire new ideas amongst the professionals, industrialists and students from research areas of Biomaterials, Biomedical Engineering and Materials Science and Engineering, to share research experiences and indulge in interactive sessions on technical issues. The conference provides a forum to discuss about various aspect of material design, process, performance and reliability in/for biological systems, technological advancements in device design and development for diagnostics and therapeutics. Emphasis will also be given on the novel structures and properties of materials to design them for technological applications to address societal, life supporting and biomedical needs.
                </p>
             </div>
-      </div>
+         </div>
       </section>
       <section id="committee" class="section">
          <div class="content">
@@ -307,7 +324,7 @@
             <p>
                Dr.V.RAMAMURTHY - Professor and Head / BME
             </p>
-            <div class="nav-bar">
+            <div class="nav-bar" style="margin-top: 50px;">
                <button class="nav-item" onclick="toggleSection('organizing-secretaries')">ORGANIZING SECRETARIES</button>
                <button class="nav-item" onclick="toggleSection('organizing-committee')">ORGANIZING COMMITTEE MEMBERS</button>
                <button class="nav-item" onclick="toggleSection('national-advisory-committee')">NATIONAL ADVISORY COMMITTEE</button>
@@ -316,7 +333,7 @@
             <div class="block">
                <div id="organizing-secretaries" class="committee-section">
                   <h3>ORGANIZING SECRETARIES</h3>
-                  <ul class="list">
+                  <ul class="list" >
                      <li>Dr. R. Kesavasamy, Assoc. Prof / Physics</li>
                      <li>Dr. L. Priya, Assoc. Prof / BME</li>
                      <li>Dr. M. Chitra, Asst.Prof / Physics</li>
@@ -357,25 +374,41 @@
                <div id="technical-review-committee" class="committee-section">
                   <h3>TECHNICAL REVIEW COMMITTEE</h3>
                   <ul class="list">
-                  <li>Dr. M. D. Kannan, PSGCT, Coimbatore</li>
-                  <li>Dr. S.C. Murugavel, PSGCT, Coimbatore</li>
-                  <li>Dr. N. Muthukumarasamy, CIT, Coimbatore</li>
-                  <li>Dr. R. Bharathikannan, SRKV, Coimbatore</li>
-                  <li>Dr. M. Sivakumar, Amrita Univ, Coimbatore</li>
-                  <li>Dr. Muthu Senthil Pandian, SSN Institutions, Chennai</li>
-                  <li>Dr. V. Veeravazhuthi, PSGCAS, Coimbatore</li>
-                  <li>Dr. H. B. Ramalingam, GAC, Tuticorin</li>
-                  <li>Dr. B. Padmapriya, PSGCT, Coimbatore</li>
-                  <li>Dr. K. Vaideki, PSGCT, Coimbatore</li>
-                  <li>Dr. R. Arun Kumar, NIT, AP</li>
-                  <li>Dr. Suresh Damodharan, Sri Ramakrishna Hospital, Coimbatore</li>
-                  <li>Dr. P. Karuppuswamy, HoD, Mech, SREC</li>
-                  <li>Dr. Moorthi Pichumani, HoD, Nano, SREC</li>
-                  <li>Dr. L. Ragunath, HoD, Chemistry, SREC</li>
-                  <li>Dr. M. Jagadeeswari, HoD, ECE, SREC</li>
-                  <li>Dr. K. Srinivasan, HoD, EIE, SREC</li>
+                     <li>Dr. M. D. Kannan, PSGCT, Coimbatore</li>
+                     <li>Dr. S.C. Murugavel, PSGCT, Coimbatore</li>
+                     <li>Dr. N. Muthukumarasamy, CIT, Coimbatore</li>
+                     <li>Dr. R. Bharathikannan, SRKV, Coimbatore</li>
+                     <li>Dr. M. Sivakumar, Amrita Univ, Coimbatore</li>
+                     <li>Dr. Muthu Senthil Pandian, SSN Institutions, Chennai</li>
+                     <li>Dr. V. Veeravazhuthi, PSGCAS, Coimbatore</li>
+                     <li>Dr. H. B. Ramalingam, GAC, Tuticorin</li>
+                     <li>Dr. B. Padmapriya, PSGCT, Coimbatore</li>
+                     <li>Dr. K. Vaideki, PSGCT, Coimbatore</li>
+                     <li>Dr. R. Arun Kumar, NIT, AP</li>
+                     <li>Dr. Suresh Damodharan, Sri Ramakrishna Hospital, Coimbatore</li>
+                     <li>Dr. P. Karuppuswamy, HoD, Mech, SREC</li>
+                     <li>Dr. Moorthi Pichumani, HoD, Nano, SREC</li>
+                     <li>Dr. L. Ragunath, HoD, Chemistry, SREC</li>
+                     <li>Dr. M. Jagadeeswari, HoD, ECE, SREC</li>
+                     <li>Dr. K. Srinivasan, HoD, EIE, SREC</li>
+                  </ul>
                </div>
             </div>
+         </div>
+      </section>
+      <section id="keynote-speakers" class="section">
+         <div class="content">
+            <h2>KEYNOTE SPEAKERS</h2>
+            <ul class="list">
+               <li>Dr. J. K. Radhakrishnan, Scientist ‘G’ DEBEL-DRDO, Bangalore</li>
+               <li>Dr. K. Mohanavelu, Scientist & Head, Biomedical Technology, DEBEL, DRDO, Bangalore</li>
+               <li>Dr. K. Kadirvelu, Scientist ‘F’ and OIC, DRDO - BU, Centre for Life Sciences, Bharathiar University, Coimbatore</li>
+               <li>Dr. M. Ananthasubramanian, Professor & Head, Department of Biotechnology, PSG College of Technology, Coimbatore</li>
+               <li>Dr.R.Selvakumar, Prof and Head, Dept. of Nanobiotechnology, PSGIAS, Coimbatore</li>
+               <li>Dr.E.K.Girija, Assistant Professor. Department of Physics, Periyar University, Salem</li>
+               <li>Dr. V. Ramamurthy, Prof and Head, Dept. of Biomedical Engineering, Coimbatore</li>
+               <li>Dr. N. Meenakshisundaram, Asst. Prof and Head, Dept. of Physics CA, LRG Government Arts College for Women, Tirupur</li>
+            </ul>
          </div>
       </section>
       <section id="call-for-papers" class="section">
@@ -433,8 +466,23 @@
                Note: Accommodation will be provided for interested outstation delegates in the College Hostel on a payment basis.
             </p>
             <p class="publication-text">
-               Accepted Papers will be published in conference proceedings with an ISBN number. For further details, kindly visit <a href="https://srec.ac.in/beyondclassrooms/abmdb2023">click here</a>.
+               Accepted Papers will be published in conference proceedings with an ISBN number.
             </p>
+            <div class="bank" style="text-align: center;">
+               <h2>OUR BANK DETAILS FOR ONLINE TRANSFER </h2>
+               <ul class="list" style="list-style-type: none;">
+                  <li>Bank Name: ICICI</li>
+                  <li>Account No: 243205001357</li>
+                  <li>IFSC CODE   : ICIC0002432</li>
+                  <li>Branch :  THUDIYALUR BRANCH</li>
+               </ul>
+            </div>
+            <p>              
+               A signed copy of the registration form should be sent to <em>abmdb2023@srec.ac.in</em>   on or before 03.08.2023
+            </p>
+            <div style="text-align: center;">
+               <a href="mailto:abmdb2023@srec.ac.in" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 4px; font-weight: bold;">Send Email</a>
+            </div>
          </div>
       </section>
       <section id="important-dates" class="section">
@@ -458,21 +506,6 @@
                   <td>03.08.2023</td>
                </tr>
             </table>
-         </div>
-      </section>
-      <section id="keynote-speakers" class="section">
-         <div class="content">
-            <h2>KEYNOTE SPEAKERS</h2>
-            <ul class="list">
-               <li>Dr. J. K. Radhakrishnan, Scientist ‘G’ DEBEL-DRDO, Bangalore</li>
-               <li>Dr. K. Mohanavelu, Scientist & Head, Biomedical Technology, DEBEL, DRDO, Bangalore</li>
-               <li>Dr. K. Kadirvelu, Scientist ‘F’ and OIC, DRDO - BU, Centre for Life Sciences, Bharathiar University, Coimbatore</li>
-               <li>Dr. M. Ananthasubramanian, Professor & Head, Department of Biotechnology, PSG College of Technology, Coimbatore</li>
-               <li>Dr.R.Selvakumar, Prof and Head, Dept. of Nanobiotechnology, PSGIAS, Coimbatore</li>
-               <li>Dr.E.K.Girija, Assistant Professor. Department of Physics, Periyar University, Salem</li>
-               <li>Dr. V. Ramamurthy, Prof and Head, Dept. of Biomedical Engineering, Coimbatore</li>
-               <li>Dr. N. Meenakshisundaram, Asst. Prof and Head, Dept. of Physics CA, LRG Government Arts College for Women, Tirupur</li>
-            </ul>
          </div>
       </section>
       <section id="about-srec" class="section">
@@ -500,23 +533,24 @@
             </div>
          </div>
       </section>
+      <div class="content">
+         <section id="address"  class="section">
+            <h4>ADDRESS FOR CORRESPONDENCE</h4>
+            <p>The Convenor, ABMDB - 2023</p>
+            <p>Departments of Physics and Biomedical Engineering</p>
+            <p>Sri Ramakrishna Engineering College</p>
+            <p>Coimbatore – 641022, Tamil Nadu</p>
+         </section>
       </div>
       <footer>
          <div class="footer-content">
-            <section id="address" class="footer-section">
-               <h3>ADDRESS FOR CORRESPONDENCE</h3>
-               <p>The Convenor, ABMDB - 2023</p>
-               <p>Departments of Physics and Biomedical Engineering</p>
-               <p>Sri Ramakrishna Engineering College</p>
-               <p>Coimbatore – 641022, Tamil Nadu</p>
-            </section>
-            <section id="contact" class="footer-section">
-               <h3>FOR FURTHER DETAILS</h3>
+            <section id="contact">
+               <h4>FOR FURTHER DETAILS</h4>
                <p>Dr. L. Priya (+91 9791818444)</p>
                <p>Dr. M. Chitra (+91 9787285841)</p>
             </section>
          </div>
-         <p class="footer-text">Conference Website &copy; 2023 | Sri Ramakrishna Engineering College</p>
+         <p class="footer-text">ABMDB2023 &copy; 2023 | Sri Ramakrishna Engineering College</p>
       </footer>
    </body>
 </html>
