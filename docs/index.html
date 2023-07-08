@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Conference Website</title>
+      <style>
+         body {
+         margin: 0;
+         padding: 0;
+         font-family: sans-serif;
+         }    
+         header {
+         position: fixed;
+         width: 100%;
+         top: 0;
+         left: 0;
+         color: #fff;
+         }
+         .head {  
+         padding-top: 30px;
+         text-align: center;
+         width: 100%;
+         background-size: cover;
+         background-image: linear-gradient( #2f3591, #1c2343);
+         border-radius: 0 0 85% 85% / 30%;
+         overflow: hidden;
+         }
+         .title {
+         width: 100%;
+         height: 100%;
+         color: #fff;
+         text-shadow: 1px 1px 1px #333;
+         }
+         h1 { 
+         font-size: large;
+         }
+         p,pre {
+         font-family: 'Open Sans', sans-serif;
+         }
+         pre{
+         font-size: smaller;
+         }
+         .logo-container {
+         display: flex;
+         justify-content: center;
+         }
+         .logo {
+         width: 120px;
+         height: 120px;
+         border-radius: 50%;
+         padding: 10px;
+         }
+         .nav-bar {
+         background-image: linear-gradient( #2f3591, #1c2343);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         }
+         .nav-item {
+         margin:  10px;
+         color: #fff;
+         background-image: linear-gradient( #2f3591, #1c2343);
+         font-size: small;
+         text-decoration: none;
+         cursor: pointer;
+         transition: color 0.3s;
+         border: 1px solid transparent;
+         padding: 5px;
+         }
+         .nav-item:hover {
+         color: yellow;
+         }
+         .detail {
+         text-align: center;
+         width: 100%;
+         text-shadow: 1px 1px 1px #1c2343;
+         color:  #2f3591;
+         margin: 10px;
+         }
+         .section {
+         height: auto; /* Adjust height as needed */
+         margin-bottom: 50px;
+         padding: 10px;
+         border: 1px solid #ccc;
+         }
+         #about-conference {
+         background-color: #1c2343;
+         padding: 50px;
+         margin: 50px;
+         font-size: medium;
+         }
+         #committee{
+         padding: 50px;
+         margin: 50px;
+         font-size: medium;
+         }
+         .conference{
+         text-align: justify;
+         color:  #fff;
+         line-height: 1.5;
+         padding: 10px;
+         }
+         .section .content {
+         text-align: center;
+         color: #1c2343;
+         font-family: 'Roboto Slab', serif;
+         }
+         #paper-submission, #call-for-papers,   #keynote-speakers,#important-dates {
+         text-align: justify;
+         padding: 50px;
+         margin: 50px;
+         }
+         .table {
+         margin: 20px auto;
+         border-collapse: collapse;
+         }
+         .table th,
+         .table td {
+         padding: 10px;
+         border: 1px solid #1c2343;
+         }
+         .table th {
+         font-weight: bold;
+         }
+         .table td {
+         text-align: center;
+         }
+         .publication-text a {
+         color: #1c2343;
+         }
+         #call-for-papers{
+         text-align: center;
+         } 
+         #call-for-papers p,  #call-for-papers h1 {
+         text-align: center;
+         color:  #1c2343;
+         font-size: 18px;
+         font-family: 'Roboto Slab', serif;
+         }
+         #call-for-papers ul,   #keynote-speakers ul , #committee ul{
+         display: inline-block;
+         text-align: left;
+         }
+         #call-for-papers  li ,  #keynote-speakers li, #committee ul{
+         color:  #1c2343;
+         margin-bottom: 5px;
+         line-height: 1.5;
+         }
+         #committee li, #committee ul, #committee .block h3{
+         padding: 5px;
+         color: #fff;
+         }
+         #committee .block {
+         padding: 10px;
+         background-color: #1c2343;
+         }
+         .committee-section {
+         display: none;
+         }
+         .committee-section.active {
+         display: block;
+         }
+         #about-srec,#about-departments {
+         background-image: linear-gradient( #2f3591, #1c2343);
+         text-align: justify;
+         padding: 50px;
+         margin: 50px;
+         }
+         .section .srec-content {
+         display: flex;
+         padding: 20px;
+         }
+         #about-srec .content-left {
+         flex: 0.3;
+         padding: 20px;
+         display: flex;
+         align-items: center;
+         color: #fff;
+         text-shadow: 1px 1px 1px #333;  
+         }
+         #about-srec .content-right {
+         flex: 1;
+         display: flex;
+         justify-content: flex-end;
+         align-items: center;
+         padding: 20px;
+         line-height: 1.8;  
+         color: #fff;
+         text-shadow: 1px 1px 1px #333;
+         }
+         #about-departments .content-left {
+         flex: 0.4;
+         padding: 20px;
+         display: flex;
+         align-items: center;
+         color: #fff;
+         text-shadow: 1px 1px 1px #333;  
+         }
+         #about-departments .content-right {
+         flex: 1;
+         display: flex;
+         justify-content: flex-end;
+         align-items: center;
+         padding: 20px;
+         line-height: 1.8;  
+         color: #fff;
+         text-shadow: 1px 1px 1px #333;
+         }
+         footer {
+         background-image: linear-gradient(#1c2343, #37437f);
+         color: #fff;
+         padding: 20px;
+         text-align: center;
+         position:relative;
+         width: 100%;
+         bottom: 0;
+         left: 0;
+         }
+      </style>
+      <script>
+         function scrollToSection(sectionId) {
+           var section = document.getElementById(sectionId);
+           section.scrollIntoView({ behavior: 'smooth' });
+         }
+         
+         function toggleSection(sectionId) {
+         const sections = document.getElementsByClassName('committee-section');
+         for (let i = 0; i < sections.length; i++) {
+         if (sections[i].id === sectionId) {
+         sections[i].classList.toggle('active');
+         } else {
+         sections[i].classList.remove('active');
+         }
+         }
+         }
+         
+         
+      </script>
+   </head>
+   <body>
+      <header>
+         <div class="nav-bar">
+            <span class="nav-item" onclick="scrollToSection('call-for-papers')">CALL FOR PAPERS</span>
+            <span class="nav-item" onclick="scrollToSection('paper-submission')">PAPER SUBMISSION</span>
+            <span class="nav-item" onclick="scrollToSection('important-dates')">IMPORTANT DATES</span>
+            <span class="nav-item" onclick="scrollToSection('about-conference')">ABOUT THE CONFERENCE</span>
+            <span class="nav-item" onclick="scrollToSection('committee')">COMMITTEE</span>
+            <span class="nav-item" onclick="scrollToSection('keynote-speakers')">KEYNOTE SPEAKERS</span>
+            <span class="nav-item" onclick="scrollToSection('about-srec')">ABOUT SREC</span>
+            <span class="nav-item" onclick="scrollToSection('about-departments')">ABOUT THE DEPARTMENTS</span>
+         </div>
+      </header>
+      <hr>
+      <div class="head">
+         <div class="title">
+            <p>NATIONAL CONFERENCE ON</p>
+            <h1>“ADVANCED BIOCOMPATIBLE MATERIALS AND DEVICES / SYSTEMS FOR BIOMEDICAL APPLICATIONS” (ABMDB - 2023)</h1>
+            <p>sponsored by <b>DRDO, INDIA</b></p>
+            <p>Organized by  <b>DEPARTMENTS OF PHYSICS AND BIOMEDICAL ENGINEERING</b></p>
+            <h1>SRI RAMAKRISHNA ENGINEERING COLLEGE</h1>
+            <pre>Autonomous Institution, Reaccredited by NAAC with ‘A+’ Grade
+      All eligible programmes accredited by NBA
+      Permanently Affiliated to Anna University, Chennai
+      Approved by AICTE and ISO 9001:2015 Certified
+      Coimbatore – 641 022, Tamil Nadu, India</pre>
+         </div>
+      </div>
+      <div class="logo-container">
+         <img src="drdo.jpg" alt="DRDO" class="logo">
+         <img src="srec.jpg" alt="SREC" class="logo">
+         <img src="SNR.jpg" alt="SNR" class="logo" >
+      </div>
+      <div class="detail">
+         <marquee>
+            <p>DRDO sponsored Two  Days National Conference  on “ADVANCED BIOCOMPATIBLE MATERIALS AND DEVICES / SYSTEMS FOR BIOMEDICAL APPLICATIONS” (ABMDB - 2023) 
+               || 10.08.2023 – 11.08.2023 || <a href="">Register here</a>
+            </p>
+         </marquee>
+      </div>
+      <div class="content">
+         <section id="about-conference" class="section">
+            <div class="conference">
+               <h1 style="text-align: center;">ABOUT THE CONFERENCE</h1>
+               <p>
+                  The objective of the Two Days National Conference on “ADVANCED BIOCOMPATIBLE MATERIALS AND DEVICES / SYSTEMS FOR BIOMEDICAL APPLICATIONS” (ABMDB - 2023) aims to discuss new developments, analyze challenges in healthcare and inspire new ideas amongst the professionals, industrialists and students from research areas of Biomaterials, Biomedical Engineering and Materials Science and Engineering, to share research experiences and indulge in interactive sessions on technical issues. The conference provides a forum to discuss about various aspect of material design, process, performance and reliability in/for biological systems, technological advancements in device design and development for diagnostics and therapeutics. Emphasis will also be given on the novel structures and properties of materials to design them for technological applications to address societal, life supporting and biomedical needs.
+               </p>
+            </div>
+      </div>
+      </section>
+      <section id="committee" class="section">
+         <div class="content">
+            <h3>CHIEF PATRONS</h3>
+            <p>
+               Shri. D. LAKSHMINARAYANASWAMY - Managing Trustee
+            </p>
+            <p>
+               Shri. R. SUNDAR - Joint Managing Trustee
+            </p>
+            <h3>PATRON</h3>
+            <p>
+               Dr. N. R. ALAMELU - Principal
+            </p>
+            <h3>CONVENOR</h3>
+            <p>
+               Dr. K. UTHAYARANI - Professor and Head / Physics
+            </p>
+            <h3>Technical Advisor</h3>
+            <p>
+               Dr.V.RAMAMURTHY - Professor and Head / BME
+            </p>
+            <div class="nav-bar">
+               <button class="nav-item" onclick="toggleSection('organizing-secretaries')">ORGANIZING SECRETARIES</button>
+               <button class="nav-item" onclick="toggleSection('organizing-committee')">ORGANIZING COMMITTEE MEMBERS</button>
+               <button class="nav-item" onclick="toggleSection('national-advisory-committee')">NATIONAL ADVISORY COMMITTEE</button>
+               <button class="nav-item" onclick="toggleSection('technical-review-committee')">TECHNICAL REVIEW COMMITTEE</button>
+            </div>
+            <div class="block">
+               <div id="organizing-secretaries" class="committee-section">
+                  <h3>ORGANIZING SECRETARIES</h3>
+                  <ul class="list">
+                     <li>Dr. R. Kesavasamy, Assoc. Prof / Physics</li>
+                     <li>Dr. L. Priya, Assoc. Prof / BME</li>
+                     <li>Dr. M. Chitra, Asst.Prof / Physics</li>
+                     <li>Mrs. G. Lavanya, Asst.Prof / BME</li>
+                  </ul>
+               </div>
+               <div id="organizing-committee" class="committee-section">
+                  <h3>ORGANIZING COMMITTEE MEMBERS</h3>
+                  <ul class="list">
+                     <li>Dr. M.RM.Krishnappa, Assoc. Prof / Physics</li>
+                     <li>Dr. S. Deivanayaki, Asst. Prof / Physics</li>
+                     <li>Dr. R. Vasanthapriya, Asst. Prof / Physics</li>
+                     <li>Ms. D. Sudha, Asst. Prof / Physics</li>
+                     <li>Dr. A. Leggins, Asst. Prof / Physics</li>
+                     <li>Dr. Deepa B. Prabhu, Assoc. Prof / BME</li>
+                     <li>Mrs. L. Dhiviyalakshmi, Asst. Prof / BME</li>
+                     <li>Mrs. R. Saranya, Asst. Prof. / BME</li>
+                     <li>Mr. S. Vigneshwaran, Asst. Prof. / BME</li>
+                     <li>Mrs. Sree Sanjanaa Bose, Asst. Prof / BME</li>
+                     <li>Mrs. A. Rasheedha, Asst. Prof / BME</li>
+                  </ul>
+               </div>
+               <div id="national-advisory-committee" class="committee-section">
+                  <h3>NATIONAL ADVISORY COMMITTEE</h3>
+                  <ul class="list">
+                     <li>Dr. M. R. Ajith Nair, VSSC, Trivandrum</li>
+                     <li>Dr. Mahadevan S, Amrita Vishwa Vidyapeetham, Coimbatore</li>
+                     <li>Dr. R. Karvembu, NIT, Trichy</li>
+                     <li>Dr. S. Balakumar, Madras University, Chennai</li>
+                     <li>Dr. V. R. Giri Dev, Anna University, Chennai</li>
+                     <li>Dr. N. Ponpandian, Bharathiar University, Coimbatore</li>
+                     <li>Dr. P. Meena, PSGRKCW, Coimbatore</li>
+                     <li>Dr. P. Sukumaran, Sri Ramakrishna Hospital, Coimbatore</li>
+                     <li>Mr. Anil Chaudhari, Operon Strategist, Pune</li>
+                     <li>Mr. Benedict Biju, General Manager (RMS), Skanray Technologies, Mysore, Karnataka</li>
+                  </ul>
+               </div>
+               <div id="technical-review-committee" class="committee-section">
+                  <h3>TECHNICAL REVIEW COMMITTEE</h3>
+                  <ul class="list">
+                  <li>Dr. M. D. Kannan, PSGCT, Coimbatore</li>
+                  <li>Dr. S.C. Murugavel, PSGCT, Coimbatore</li>
+                  <li>Dr. N. Muthukumarasamy, CIT, Coimbatore</li>
+                  <li>Dr. R. Bharathikannan, SRKV, Coimbatore</li>
+                  <li>Dr. M. Sivakumar, Amrita Univ, Coimbatore</li>
+                  <li>Dr. Muthu Senthil Pandian, SSN Institutions, Chennai</li>
+                  <li>Dr. V. Veeravazhuthi, PSGCAS, Coimbatore</li>
+                  <li>Dr. H. B. Ramalingam, GAC, Tuticorin</li>
+                  <li>Dr. B. Padmapriya, PSGCT, Coimbatore</li>
+                  <li>Dr. K. Vaideki, PSGCT, Coimbatore</li>
+                  <li>Dr. R. Arun Kumar, NIT, AP</li>
+                  <li>Dr. Suresh Damodharan, Sri Ramakrishna Hospital, Coimbatore</li>
+                  <li>Dr. P. Karuppuswamy, HoD, Mech, SREC</li>
+                  <li>Dr. Moorthi Pichumani, HoD, Nano, SREC</li>
+                  <li>Dr. L. Ragunath, HoD, Chemistry, SREC</li>
+                  <li>Dr. M. Jagadeeswari, HoD, ECE, SREC</li>
+                  <li>Dr. K. Srinivasan, HoD, EIE, SREC</li>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="call-for-papers" class="section">
+         <div class="content">
+            <h2>CALL FOR PAPER</h2>
+            <p>We invite researchers, scientists, students, industries, and faculty members to send their full papers in relevant areas for oral or poster presentation.</p>
+            <p>Topics to be covered in the conference include (but not limited to):</p>
+            <div class="list">
+               <ul>
+                  <li>Design, synthesis, characterization, and testing of biomaterials</li>
+                  <li>Healthcare Materials</li>
+                  <li>Energy and Energy Storage Materials</li>
+                  <li>Sensor Materials</li>
+                  <li>Functional Materials</li>
+                  <li>Biopolymers</li>
+                  <li>Materials for Antimicrobial activity</li>
+                  <li>Modeling and Simulation</li>
+                  <li>Medical instrumentation</li>
+                  <li>Signal and image processing</li>
+                  <li>Analytics of medical data</li>
+                  <li>Regenerative medicine and tissue engineering</li>
+                  <li>3D printing and bioprinting</li>
+                  <li>Biomechanics and Rehabilitation</li>
+               </ul>
+            </div>
+         </div>
+      </section>
+      <section id="paper-submission" class="section">
+         <div class="content">
+            <h2>PAPER SUBMISSION</h2>
+            <p>
+               Authors should format the paper according to the IEEE format along with author and institution information.
+            </p>
+            <p>The maximum number of authors in a paper is limited to 4 and the number of pages is limited to 7. Authors should submit their paper to abmdb2023@srec.ac.in.
+            </p>
+            <table class="table">
+               <tr>
+                  <th>REGISTRATION FEE</th>
+                  <th></th>
+               </tr>
+               <tr>
+                  <td>Industry Professionals</td>
+                  <td>Rs. 750/-</td>
+               </tr>
+               <tr>
+                  <td>Faculty/Delegates</td>
+                  <td>Rs. 650/-</td>
+               </tr>
+               <tr>
+                  <td>Students/Scholars</td>
+                  <td>Rs. 500/-</td>
+               </tr>
+            </table>
+            <p class="note-text">
+               Note: Accommodation will be provided for interested outstation delegates in the College Hostel on a payment basis.
+            </p>
+            <p class="publication-text">
+               Accepted Papers will be published in conference proceedings with an ISBN number. For further details, kindly visit <a href="https://srec.ac.in/beyondclassrooms/abmdb2023">click here</a>.
+            </p>
+         </div>
+      </section>
+      <section id="important-dates" class="section">
+         <div class="content">
+            <h2>IMPORTANT DATES</h2>
+            <table class="table">
+               <tr>
+                  <td>Date of Submission of Full Paper</td>
+                  <td>20.07.2023</td>
+               </tr>
+               <tr>
+                  <td>Date of Acceptance of Full Paper</td>
+                  <td>30.07.2023</td>
+               </tr>
+               <tr>
+                  <td>Camera Ready Paper</td>
+                  <td>03.08.2023</td>
+               </tr>
+               <tr>
+                  <td>Registration Deadline</td>
+                  <td>03.08.2023</td>
+               </tr>
+            </table>
+         </div>
+      </section>
+      <section id="keynote-speakers" class="section">
+         <div class="content">
+            <h2>KEYNOTE SPEAKERS</h2>
+            <ul class="list">
+               <li>Dr. J. K. Radhakrishnan, Scientist ‘G’ DEBEL-DRDO, Bangalore</li>
+               <li>Dr. K. Mohanavelu, Scientist & Head, Biomedical Technology, DEBEL, DRDO, Bangalore</li>
+               <li>Dr. K. Kadirvelu, Scientist ‘F’ and OIC, DRDO - BU, Centre for Life Sciences, Bharathiar University, Coimbatore</li>
+               <li>Dr. M. Ananthasubramanian, Professor & Head, Department of Biotechnology, PSG College of Technology, Coimbatore</li>
+               <li>Dr.R.Selvakumar, Prof and Head, Dept. of Nanobiotechnology, PSGIAS, Coimbatore</li>
+               <li>Dr.E.K.Girija, Assistant Professor. Department of Physics, Periyar University, Salem</li>
+               <li>Dr. V. Ramamurthy, Prof and Head, Dept. of Biomedical Engineering, Coimbatore</li>
+               <li>Dr. N. Meenakshisundaram, Asst. Prof and Head, Dept. of Physics CA, LRG Government Arts College for Women, Tirupur</li>
+            </ul>
+         </div>
+      </section>
+      <section id="about-srec" class="section">
+         <div class="srec-content">
+            <div class="content-left">
+               <h1>ABOUT SREC</h1>
+            </div>
+            <div class="content-right">
+               <p>
+                  Sri Ramakrishna Engineering College (SREC), Coimbatore was established in the year 1994 by SNR Sons Charitable Trust. The institution offers 11 Undergraduate Programmes and 6 Post Graduate Programmes in Engineering and Technology, 5-year integrated M.Tech Computer Science and Engineering, and MBA Programmes. It is a prestigious institute with a reputation for excellence at both UG and PG levels, a close interaction with industry, and a strong emphasis on research both basic and applied. The college is one among the 49 institutions in India, selected for AICTE IDEA LAB funded by AICTE to set up infrastructure to encourage students to experiment with the fundamental applications of Science, Technology, Engineering, and Mathematics and enable product visualization. The institution has also been awarded top star rating by MHRD for IIC, and it is consistently ranked in the top 200 Engineering Institutes for 5 consecutive years as per NIRF ranking by the Government of India.
+               </p>
+            </div>
+         </div>
+      </section>
+      <section id="about-departments" class="section">
+         <div class="srec-content">
+            <div class="content-left " >
+               <h1>ABOUT THE DEPARTMENTS</h1>
+            </div>
+            <div class="content-right">
+               <p>
+                  The Department of Physics was established in the year 1994 and the Department of Biomedical Engineering in the year 2006. Dedicated, well qualified and experienced faculty members of the departments lead to the path of success. All the departments are recognized as Research Department by Anna University, Chennai. Faculty of the institution have received  the fellowships from INSA, INSPIRE, CSIR and TARE. Research in the departments ranges across the most challenging problems in materials science, nanoscience and nanotechnology, medical electronics, rehabilitation engineering, molecular diagnostics, medical data science and therapy design. 
+                  Opportunities for collaboration with Sri Ramakrishna Hospitals, Coimbatore, a sister organization under the trust, provides access to a wealth of expertise and options for studying real world health issues for biomedical engineering students. DST – FIST has sponsored to improve the infrastructural facilities of various departments. DC Sputtering unit, Solar simulator and Photoluminescence spectrometer have been purchased under DST-FIST scheme. Apart from that, the departments have a well-established synthesis lab equipped to synthesize nanomaterials and thin films. Characterization lab is equipped with XRD, AFM, UV, ATR and Electrochemical workstation and SLB (Schlumberger) elastomer seal test facility.
+               </p>
+            </div>
+         </div>
+      </section>
+      </div>
+      <footer>
+         <div class="footer-content">
+            <section id="address" class="footer-section">
+               <h3>ADDRESS FOR CORRESPONDENCE</h3>
+               <p>The Convenor, ABMDB - 2023</p>
+               <p>Departments of Physics and Biomedical Engineering</p>
+               <p>Sri Ramakrishna Engineering College</p>
+               <p>Coimbatore – 641022, Tamil Nadu</p>
+            </section>
+            <section id="contact" class="footer-section">
+               <h3>FOR FURTHER DETAILS</h3>
+               <p>Dr. L. Priya (+91 9791818444)</p>
+               <p>Dr. M. Chitra (+91 9787285841)</p>
+            </section>
+         </div>
+         <p class="footer-text">Conference Website &copy; 2023 | Sri Ramakrishna Engineering College</p>
+      </footer>
+   </body>
+</html>
